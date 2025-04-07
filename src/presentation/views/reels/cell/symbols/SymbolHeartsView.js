@@ -1,0 +1,22 @@
+import { Sprite } from "pixi.js";
+import { LowValueSymbolView } from "./LowValueSymbolView";
+
+export class SymbolHeartsView extends LowValueSymbolView {
+    initFaces() {
+        super.initFaces('hearts')
+    }
+
+	initFlames() {
+		super.initFlames('hearts')
+	}
+
+    initBlurredBody() {
+        const {
+            assets,
+		} = this
+
+		this.blurredBodyView = this.addChild(new Sprite(assets.symbol_hearts_motion_blur))
+        this.blurredBodyView.scale.set(2)
+        this.blurredBodyView.anchor.set(0.5, 0.675)
+	}
+}

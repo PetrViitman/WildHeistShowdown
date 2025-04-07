@@ -1,0 +1,231 @@
+{
+  "frames": {
+    "symbol_watches_face": {
+      "frame": {
+        "x": 5,
+        "y": 5,
+        "w": 219,
+        "h": 214
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 219,
+        "h": 214
+      },
+      "sourceSize": {
+        "w": 219,
+        "h": 214
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_stretch": {
+      "frame": {
+        "x": 5,
+        "y": 229,
+        "w": 219,
+        "h": 214
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 219,
+        "h": 214
+      },
+      "sourceSize": {
+        "w": 219,
+        "h": 214
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_back": {
+      "frame": {
+        "x": 234,
+        "y": 5,
+        "w": 218,
+        "h": 214
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 214
+      },
+      "sourceSize": {
+        "w": 218,
+        "h": 214
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_glow": {
+      "frame": {
+        "x": 234,
+        "y": 229,
+        "w": 159,
+        "h": 159
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 159,
+        "h": 159
+      },
+      "sourceSize": {
+        "w": 159,
+        "h": 159
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_rib": {
+      "frame": {
+        "x": 403,
+        "y": 229,
+        "w": 38,
+        "h": 214
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 38,
+        "h": 214
+      },
+      "sourceSize": {
+        "w": 38,
+        "h": 214
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_blick": {
+      "frame": {
+        "x": 234,
+        "y": 398,
+        "w": 65,
+        "h": 87
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 65,
+        "h": 87
+      },
+      "sourceSize": {
+        "w": 65,
+        "h": 87
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_arrow": {
+      "frame": {
+        "x": 309,
+        "y": 398,
+        "w": 74,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 74,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 74,
+        "h": 18
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_gear_bottom": {
+      "frame": {
+        "x": 309,
+        "y": 426,
+        "w": 49,
+        "h": 23
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 49,
+        "h": 23
+      },
+      "sourceSize": {
+        "w": 49,
+        "h": 23
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "symbol_watches_gear_top": {
+      "frame": {
+        "x": 368,
+        "y": 453,
+        "w": 49,
+        "h": 23
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 49,
+        "h": 23
+      },
+      "sourceSize": {
+        "w": 49,
+        "h": 23
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "preloading_elements.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 457,
+      "h": 490
+    },
+    "scale": 1
+  }
+}

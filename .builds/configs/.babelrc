@@ -1,0 +1,12 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": "> 0.25%, not dead", // 🦕🦖
+          "useBuiltIns": "entry", // автополифилы из core-js
+          "corejs": 3 // версия core-js
+        }
+      ]
+    ]
+}
