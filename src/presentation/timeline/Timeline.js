@@ -10,7 +10,7 @@ export { EASING } from './Animation'
  * Playback is simulated by rewinding, which excludes any desynchronization
  */
 export class Timeline {
-	/** All instances of time line in the game */
+	/** All instances of timeline in the game */
 	static instances = []
 
 	/** V-sync time stamp in milliseconds which is recorded in previous frame*/
@@ -33,6 +33,10 @@ export class Timeline {
 
 	static drop() {
 		Timeline.instances = []
+	}
+
+	static addEasing(name, easingFunction) {
+		Animation.EASING[name] = easingFunction
 	}
 
 	/** All animations inside of a single timeline */
@@ -73,7 +77,7 @@ export class Timeline {
 	 * @param {number} finalValue final value of given key
 	 * @param {number} duration duration of the animation in milliseconds
 	 * @param {number} delay delay in milliseconds before animation progress
-	 * @param {number} easing id of an ease function, that is to be applied
+	 * @param {string} easing id of an ease function, that is to be applied
 	 * @param {function} onStart callback on start, or if the animation is winded through the 0% mark
 	 * @param {function} onDelay callback that is executed while delay
 	 * @param {function} onDelayFinish callback on delay finish
@@ -157,8 +161,8 @@ export class Timeline {
 	 * @returns {Timeline}
 	 */
 	deleteAllAnimations() {
-		//this.animations = []
-		//this.animationsCount = 0
+		this.animations = []
+		this.animationsCount = 0
 
 		return this.dropAllAnimations()
 	}

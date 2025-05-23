@@ -1,48 +1,121 @@
-/**
- * [>>][>>][>] - EASE
- *
- * [>][>>][>>>] - IN
- *
- * [>>>][>][>] - OUT
- *
- * [>][>>>][>>] - IN_OUT
- */
-export const EASING = Object.freeze({
-    EASE: 0,
-    IN: 1,
-    OUT: 2,
-    IN_OUT: 3,
-})
+export const EASING = {
+    easeInSine: x =>  1 - Math.cos((x * Math.PI) / 2),
+    easeOutSine: x => Math.sin((x * Math.PI) / 2),
+    easeInOutSine: x => -(Math.cos(Math.PI * x) - 1) / 2,
 
-function getCubicBezier(progress, x0, x1, x2, x3) {
-    const reversedProgress = 1 - progress
+    easeInQuad: x => x * x,
+    easeOutQuad: x => 1 - (1 - x) * (1 - x),
+    easeInOutQuad: x => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2,
 
-    return (
-        reversedProgress ** 3 * x0
-        + 3 * reversedProgress ** 2 * progress * x1
-        + 3 * reversedProgress * progress ** 2 * x2
-        + progress ** 3 * x3)
+    easeInCubic: x => x * x * x,
+    easeOutCubic: x => 1 - Math.pow(1 - x, 3),
+    easeInOutCubic: x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+
+    easeInQuart: x => x * x * x * x,
+    easeOutQuart: x => 1 - Math.pow(1 - x, 4),
+    easeInOutQuart: x => x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2,
+
+    easeInQuint: x => x * x * x * x * x,
+    easeOutQuint: x => 1 - Math.pow(1 - x, 5),
+    easeInOutQuint: x => x < 0.5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2,
+
+    easeInExpo: x => x === 0 ? 0 : Math.pow(2, 10 * x - 10),
+    easeOutExpo: x => x === 1 ? 1 : 1 - Math.pow(2, -10 * x),
+    easeInOutExpo: x => x === 0
+        ? 0
+        : x === 1
+        ? 1
+        : x < 0.5 ? Math.pow(2, 20 * x - 10) / 2
+        : (2 - Math.pow(2, -20 * x + 10)) / 2,
+
+
+    easeInCirc: x => 1 - Math.sqrt(1 - Math.pow(x, 2)),
+    easeOutCirc: x => Math.sqrt(1 - Math.pow(x - 1, 2)),
+    easeInOutCirc: x => x < 0.5
+        ? (1 - Math.sqrt(1 - Math.pow(2 * x, 2))) / 2
+        : (Math.sqrt(1 - Math.pow(-2 * x + 2, 2)) + 1) / 2,
+    
+    easeInBack: x => {
+        const c1 = 1.70158;
+        const c3 = c1 + 1;
+        
+        return c3 * x * x * x - c1 * x * x;
+    },
+    easeOutBack: x => {
+        const c1 = 1.70158;
+        const c3 = c1 + 1;
+
+        return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+    },
+    easeInOutBack: x => {
+        const c1 = 1.70158;
+        const c2 = c1 * 1.525;
+
+        return x < 0.5
+            ? (Math.pow(2 * x, 2) * ((c2 + 1) * 2 * x - c2)) / 2
+            : (Math.pow(2 * x - 2, 2) * ((c2 + 1) * (x * 2 - 2) + c2) + 2) / 2;
+    },
+
+    easeInElastic: x => {
+        const c4 = (2 * Math.PI) / 3;
+        
+        return x === 0
+          ? 0
+          : x === 1
+          ? 1
+          : -Math.pow(2, 10 * x - 10) * Math.sin((x * 10 - 10.75) * c4);
+    },
+    easeOutElastic: x => {
+        const c4 = (2 * Math.PI) / 3;
+        
+        return x === 0
+          ? 0
+          : x === 1
+          ? 1
+          : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+    },
+    easeInOutElastic: x=> {
+        const c5 = (2 * Math.PI) / 4.5;
+        
+        return x === 0
+          ? 0
+          : x === 1
+          ? 1
+          : x < 0.5
+          ? -(Math.pow(2, 20 * x - 10) * Math.sin((20 * x - 11.125) * c5)) / 2
+          : (Math.pow(2, -20 * x + 10) * Math.sin((20 * x - 11.125) * c5)) / 2 + 1;
+    },
+
+    easeOutBounce: x => {
+        const n1 = 7.5625;
+        const d1 = 2.75;
+        
+        if (x < 1 / d1) {
+            return n1 * x * x;
+        } else if (x < 2 / d1) {
+            return n1 * (x -= 1.5 / d1) * x + 0.75;
+        } else if (x < 2.5 / d1) {
+            return n1 * (x -= 2.25 / d1) * x + 0.9375;
+        } else {
+            return n1 * (x -= 2.625 / d1) * x + 0.984375;
+        }
+    },
+    easeInBounce: x =>  1 - EASING.easeOutBounce(1 - x),
+    easeInOutBounce: x =>  x < 0.5
+        ? (1 - EASING.easeOutBounce(1 - 2 * x)) / 2
+        : (1 + EASING.easeOutBounce(2 * x - 1)) / 2,
 }
 
 /**
- * Custom easing
- * @param {number} easingId EASING ID
+ * Ease function call by name, linear if not found
+ * @param {string} easingName easing function name
  * @param {number} progress percentage of completion (0.1 = 10%)
  * @returns {number} eased percentage of completion (0.1 = 10%)
  */
-function getEasingMultiplier(easingId, progress) {
-    switch (easingId) {
-        case EASING.EASE:
-            return getCubicBezier(progress, 0, 0.75, 0.9, 1)
-        case EASING.EASE_IN:
-            return getCubicBezier(progress, 0, 0, 0.58, 1)
-        case EASING.EASE_OUT:
-            return getCubicBezier(progress, 0, 0.42, 1, 1)
-        case EASING.EASE_IN_OUT:
-            return getCubicBezier(progress, 0, 0.1, 1, 1)
-    }
+function getEasingMultiplier(easingName, progress) {
+    if(!EASING[easingName]) return progress
 
-    return progress
+    return EASING[easingName](progress)
 }
 /**
  * Single animation 
@@ -129,7 +202,7 @@ export class Animation {
      * @param {number} finalValue final value of given key
      * @param {number} duration duration of the animation in milliseconds
      * @param {number} delay delay in milliseconds before animation progress
-     * @param {number} easing callback that fires when real progress hits 100% or when winded through 100%
+     * @param {string} easing easing function name (will return progress as is, if not found)
      * @param {function} onStart callback on start, or if the animation is winded through the 0% mark
      * @param {function} onDelay callback that is executed while delay
      * @param {function} onDelayFinish callback on delay finish
@@ -206,8 +279,6 @@ export class Animation {
             callbacks,
         } = this
 
-        // if (!target) return
-
         const totalTime = delay + duration
 
         // percentage of delay relative to total duration
@@ -215,9 +286,11 @@ export class Animation {
         // percentage of animation (excluding delay) relative to total duration (which includes delay)
         const progressOffset = 1 - delayProgressOffset
         // real progress will be considered zero while delay
-        const realProgress = progress >= delayProgressOffset
-            ? (progress - delayProgressOffset) / progressOffset
-            : 0
+        const realProgress = getEasingMultiplier(
+            easing,
+            progress >= delayProgressOffset
+                ? (progress - delayProgressOffset) / progressOffset
+                : 0)
 
         // callbacks check...
         if (isResponsive) {
@@ -282,7 +355,7 @@ export class Animation {
                 // delta is only the case for scalable values
                 const valueDelta = finalValue - initialValue
 
-                target[key] = initialValue + valueDelta * getEasingMultiplier(easing, realProgress)
+                target[key] = initialValue + valueDelta * realProgress
             } else {
                 // for non scalable values only of two possible values is switched
                 target[key] = progress === 1 ? finalValue : initialValue
